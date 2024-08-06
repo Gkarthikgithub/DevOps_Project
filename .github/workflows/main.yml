@@ -42,7 +42,7 @@ jobs:
      
     - name: Tag docker image
       run: |
-         docker tag go-web-app:latest iad.ocir.io/idjm2yj32zav/cr20-spr14:$go-web-app       
+         docker tag go-web-app:latest iad.ocir.io/idjm2yj32zav/cr20-spr14:go-web-app       
          
     - name: Push Docker Image to ocir
       run: | 
