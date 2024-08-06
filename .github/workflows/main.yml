@@ -31,3 +31,19 @@ jobs:
 
     - name: Build docker image
       run: docker build -t go-web-app:latest .
+    - name: login to ocir
+      uses: docker/login-action@v3
+      id: login-ocir
+      with:
+         registry: https://iad.ocir.io
+         username: ${{ secrets.IT_ADMIN_USER_ID }}
+         password: ${{ secrets.IT_ADMIN_AUTH_TOKEN }}
+         
+     
+    - name: Tag docker image
+      run: |
+         docker tag go-web-app:latest iad.ocir.io/idjm2yj32zav/cr20-spr14:$go-web-app       
+         
+    - name: Push Docker Image to ocir
+      run: | 
+           docker push iad.ocir.io/idjm2yj32zav/cr20-spr14:go-web-app
