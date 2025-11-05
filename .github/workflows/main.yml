@@ -42,8 +42,8 @@ jobs:
      
     - name: Tag docker image
       run: |
-         docker tag go-web-app:latest karthikeyudu/go-web-app:$(BUILD_NUBER)       
+         docker tag go-web-app:latest karthikeyudu/go-web-app:${{ github.run_number }}      
          
     - name: Push Docker Image to ocir
       run: | 
-           docker push karthikeyudu/go-web-app:$(BUILD_NUBER)
+           docker push karthikeyudu/go-web-app:${{ github.run_number }}
