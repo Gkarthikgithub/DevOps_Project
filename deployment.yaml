@@ -14,8 +14,11 @@ spec:
       labels:
         app: go-app
     spec:
+     imagePullSecrets:
+      - name: my-docker-secret
       containers:
       - name: go-web-app
-        image: cr20-spr14:go-web-app
+        image: karthikeyudu/go-web-app:13
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
